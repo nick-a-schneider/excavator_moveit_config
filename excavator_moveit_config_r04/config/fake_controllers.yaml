@@ -1,0 +1,10 @@
+controller_list:
+  - name: fake_excavator_planning_group_controller
+    joints:
+      - waist
+      - shoulder
+      - elbow
+      - wrist
+initial:  # Define initial robot poses.
+#  - group: excavator_planning_group
+#    pose: home

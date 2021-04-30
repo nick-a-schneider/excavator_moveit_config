@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<launch>
+  <param name="robot_description" command="cat $(find arm_simulation_urdf)/urdf/arm_simulation_urdf.urdf"/>
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find excavator_moveit_config_r04)/config/test_controllers.yaml" command="load"/>
+
+  <!-- Load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/"
+        args="
+            /excavator/controller/state
+            /excavator/controller/position/WAIST
+            /excavator/controller/position/SHOULDER
+            /excavator/controller/position/ELBOW
+            /excavator/controller/position/WRIST
+
+        "/>
+</launch>
+

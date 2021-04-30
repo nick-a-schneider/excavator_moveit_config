@@ -1,0 +1,10 @@
+<launch>
+
+  <param name="robot_description" command="cat $(find arm_simulation_urdf)/urdf/arm_simulation_urdf.urdf"/>
+  <!-- Set the param that trajectory_execution_manager needs to find the controller plugin -->
+  <param name="moveit_controller_manager" value="moveit_fake_controller_manager/MoveItFakeControllerManager"/>
+
+  <!-- The rest of the params are specific to this plugin -->
+  <rosparam file="$(find excavator_moveit_config_r04)/config/fake_controllers.yaml"/>
+
+</launch>
